@@ -1,6 +1,8 @@
 
 package model.Persistence;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,7 +11,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.json.JsonObject;
 import model.Product;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -35,12 +36,19 @@ public class ProductArchiveLoader implements ProductLoader {
             JSONArray jsonArrayProduct = (JSONArray) obj;
 
             Iterator<JSONObject> iterator = jsonArrayProduct.iterator();
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             
             while (iterator.hasNext()) {
-                // TODO create Product
-
                 
-                // listProduct.add(new Product())
+                JSONObject jsonProduct = (JSONObject) iterator.next();
+                String jsonProductString = jsonProduct.toJSONString();
+                
+                Object objects = objectMapper.readValue(jsonProductString, Product.class);
+                Product product = (Product)objects;
+                
+                listProduct.add(product);
             }
            
        }catch (ParseException | FileNotFoundException ex) {

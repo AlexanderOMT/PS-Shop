@@ -1,26 +1,45 @@
 
 package model;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public class Product {
     
-    private final String title;
-    private final Integer isbn;
-    private final Integer pageCount;
-    private final Date publishedDate;
-    private final String thumbnailUrl;
-    private final String shortDescription;
-    private final String longDescription;
-    private final String status;
-    private final List<String> authors;
-    private final List<String> categories;
+    @JsonProperty("title")
+    private String title;
+    
+    @JsonProperty("isbn")
+    private String isbn;
+    
+    @JsonProperty("pageCount")
+    private Integer pageCount;
+    
+    @JsonProperty("publishedDate")
+    private Object publishedDate;
+    
+    @JsonProperty("thumbnailUrl")
+    private String thumbnailUrl;
+    
+    @JsonProperty("shortDescription")
+    private String shortDescription;
+    
+    @JsonProperty("longDescription")
+    private String longDescription;
+    
+    @JsonProperty("status")
+    private String status;
+    
+    @JsonProperty("authors")
+    private List<String> authors;
+    
+    @JsonProperty("categories")
+    private List<String> categories;
        
     public Product(String title,
-            Integer isbn,
+            String isbn,
             Integer pageCount,
-            Date publishedDate,
+            Object publishedDate,
             String thumbnailUrl,
             String shortDescription,
             String longDescription,
@@ -38,5 +57,54 @@ public class Product {
         this.authors = authors;
         this.categories = categories;
     }
+    
+    public String getTitle(){
+        return title;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public Integer getPageCount() {
+        return pageCount;
+    }
+
+    public String getPublishedDate() {
+        return (String) publishedDate;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public List<String> getAuthors() {
+        return authors;
+    }
+
+    public List<String> getCategories() {
+        return categories;
+    }
+    
+    
+    
+    @Override
+    public String toString(){
+        return this.title + " " + this.publishedDate.toString();
+    }
+    
+    public Product(){}
     
 }
