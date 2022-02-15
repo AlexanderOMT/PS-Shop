@@ -1,6 +1,6 @@
 <%-- 
-    Document   : PurchaseView
-    Created on : 14-Feb-2022, 21:16:58
+    Document   : ErrorView
+    Created on : 14-Feb-2022, 21:17:05
     Author     : oscar
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Error</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Error</h1>
     </body>
 </html>

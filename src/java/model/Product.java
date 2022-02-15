@@ -36,6 +36,8 @@ public class Product {
     @JsonProperty("categories")
     private List<String> categories;
        
+    public Product(){}
+    
     public Product(String title,
             String isbn,
             Integer pageCount,
@@ -97,14 +99,6 @@ public class Product {
     public List<String> getCategories() {
         return categories;
     }
-    
-    
-    
-    @Override
-    public String toString(){
-        return this.title + " " + this.publishedDate.toString();
-    }
-    
-    public Product(){}
+
     
 }

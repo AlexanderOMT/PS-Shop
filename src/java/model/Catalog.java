@@ -14,6 +14,10 @@ public class Catalog {
         this.listProduct.add(product);
     }
     
+    public void removeProduct(Product product){
+        this.listProduct.remove(product);
+    }
+    
     public void setListProduct(List<Product> listProduct){
         this.listProduct = listProduct;
     }
