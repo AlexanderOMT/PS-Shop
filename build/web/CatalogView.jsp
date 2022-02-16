@@ -28,16 +28,23 @@
                     %>
                     <div>
                     <%out.println(p.getTitle());%>
-                    
+                    <br>
+                    <%if (p.getShortDescription() != null)
+                        out.println(p.getShortDescription());%>
                     </div>
                     <img src=<%out.println(p.getThumbnailUrl());%>>
+                        <form action="FrontController">
+                            <input type="hidden" name="isbn" value="<%=p.getIsbn()%>"/>
+                            <input type="hidden" name="command" value="AddCartCommand"/>
+                            <input type="submit" value="<%="Añadir a carrito: " + p.getTitle()%>"/>
+                    </form>
                     <br>
                     
         <%        }
                 out.println(listProduct.size());
                 
             } else{  
-                out.println("Productos no encontrado");
+                out.println("Productos no encontrado. Intente cargar el catálogo");
             }
         %>
         

@@ -9,7 +9,7 @@ package controller.command;
  *
  * @author oscar
  */
-public class UnknownCommand implements FrontCommand{
+public class UnknownCommand extends FrontCommand{
 
     @Override
     public void process() {

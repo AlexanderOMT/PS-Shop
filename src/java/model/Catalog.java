@@ -10,6 +10,13 @@ public class Catalog {
     
     public Catalog(){}
     
+    public Product getProductByIsbn(String isbn) {
+        for(Product p : listProduct){
+            if(p.getIsbn().equals(isbn)) return p;
+        }
+        return null;
+    }
+    
     public void addProduct(Product product){
         this.listProduct.add(product);
     }

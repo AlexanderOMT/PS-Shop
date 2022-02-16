@@ -60,6 +60,7 @@ public class Product {
         this.categories = categories;
     }
     
+    
     public String getTitle(){
         return title;
     }
