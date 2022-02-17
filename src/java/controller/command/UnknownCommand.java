@@ -5,6 +5,11 @@
  */
 package controller.command;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
+
 /**
  *
  * @author oscar
@@ -13,7 +18,11 @@ public class UnknownCommand extends FrontCommand{
 
     @Override
     public void process() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            forward("/ErrorView.jsp");
+        } catch (ServletException | IOException ex) {
+            Logger.getLogger(UnknownCommand.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

@@ -10,6 +10,14 @@
 <%@page import="model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%! 
+    Catalog catalog = new Catalog();
+    String url = "C:\\Users\\oscar\\Documents\\Projects\\Netbeans\\Shop\\books_ulr.json";
+    String url_context = "\\books_ulr.json";
+%>
+
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,34 +25,44 @@
     </head>
     <body>
         <h1>Main Catalog</h1> <br>
-        <form action="FrontController">
-            <input type="submit" value="Cargar catálogo" />
-        </form>
+
         <br>
+        <a href="CartView.jsp">Ir a Carrito</a> <br />
+        <br>
+        
         <%
-            if (request.getAttribute("catalog") != null){
-                List<Product> listProduct = (List<Product>)request.getAttribute("catalog");
+            ProductArchiveLoader loader = new ProductArchiveLoader(url);
+            List<Product> listProduct = catalog.loadListProduct(loader);
+            session.setAttribute("catalog", catalog);
+            
+            if (listProduct != null){
                 for (Product p: listProduct) {
                     %>
                     <div>
-                    <%out.println(p.getTitle());%>
-                    <br>
-                    <%if (p.getShortDescription() != null)
-                        out.println(p.getShortDescription());%>
+                        <h2>
+                            <%out.println(p.getTitle());%>
+                        </h2>
+                        <p>
+                                <%if (p.getShortDescription() != null)
+                                    out.println("Descrición " + p.getShortDescription());%>
+                        </p>
+                        <p>    
+                            <b>
+                                <%if (p.getPrice() != null)
+                                out.println("Precio: " + p.getPrice() + " €");%>
+                            </b>
+                        </p>
                     </div>
                     <img src=<%out.println(p.getThumbnailUrl());%>>
-                        <form action="FrontController">
-                            <input type="hidden" name="isbn" value="<%=p.getIsbn()%>"/>
-                            <input type="hidden" name="command" value="AddCartCommand"/>
-                            <input type="submit" value="<%="Añadir a carrito: " + p.getTitle()%>"/>
+                    <form action="FrontController">
+                        <input type="hidden" name="isbn" value="<%=p.getIsbn()%>"/>
+                        <input type="hidden" name="command" value="AddCartCommand"/>
+                        <input type="submit" value="<%="Añadir a carrito: " + p.getTitle()%>"/>
                     </form>
                     <br>
-                    
-        <%        }
-                out.println(listProduct.size());
-                
+        <%        }                
             } else{  
-                out.println("Productos no encontrado. Intente cargar el catálogo");
+                out.println("Productos no encontrado en el catálogo");
             }
         %>
         

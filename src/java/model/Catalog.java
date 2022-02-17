@@ -1,14 +1,18 @@
 
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
+import model.Persistence.ProductLoader;
 
 
 public class Catalog {
     
     private List<Product> listProduct;
     
-    public Catalog(){}
+    public Catalog(){
+        this.listProduct = new ArrayList<>();
+    }
     
     public Product getProductByIsbn(String isbn) {
         for(Product p : listProduct){
@@ -25,8 +29,9 @@ public class Catalog {
         this.listProduct.remove(product);
     }
     
-    public void setListProduct(List<Product> listProduct){
-        this.listProduct = listProduct;
+    public List<Product> loadListProduct(ProductLoader loader){
+        this.listProduct = loader.loadAllProduct();
+        return listProduct;
     }
     
     public List<Product> getCatalog(){

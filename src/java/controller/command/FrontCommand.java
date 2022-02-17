@@ -25,7 +25,7 @@ public abstract class FrontCommand {
     public abstract void process();
     
     public void forward(String target) throws ServletException, IOException{
-        RequestDispatcher dispatcher = this.context.getRequestDispatcher(target);
+        RequestDispatcher dispatcher = context.getRequestDispatcher(target);
         dispatcher.forward(request, response);
     }
     

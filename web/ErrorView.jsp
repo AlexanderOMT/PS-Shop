@@ -13,5 +13,8 @@
     </head>
     <body>
         <h1>Error</h1>
+        <br>
+        <p>Excepción: Operación no soportada. </p>
+        <a href="index.html">Volver al menú principal</a>
     </body>
 </html>

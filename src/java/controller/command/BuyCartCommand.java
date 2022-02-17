@@ -5,12 +5,37 @@
  */
 package controller.command;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpSession;
+import model.Catalog;
+import model.Product;
+import model.ShoppingCart;
+
 
 public class BuyCartCommand extends FrontCommand{
 
     @Override
     public void process() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        HttpSession session = request.getSession(true);
+        
+        ShoppingCart shopCart = (ShoppingCart) session.getAttribute("shopCart");
+        
+        if(shopCart == null){
+            shopCart = new ShoppingCart();
+            session.setAttribute("shopCart", shopCart);
+        }
+        
+        session.setAttribute("totalPrice", shopCart.getCartPrice());
+        
+        try {
+            forward("/PurchaseView.jsp");
+        } catch (ServletException | IOException ex) {
+            Logger.getLogger(AddCartCommand.class.getName()).log(Level.SEVERE, null, ex);
+        }    
     }
     
 }
