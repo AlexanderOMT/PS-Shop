@@ -10,8 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
-import model.Catalog;
-import model.Product;
 import model.ShoppingCart;
 
 
@@ -32,7 +30,7 @@ public class BuyCartCommand extends FrontCommand{
         session.setAttribute("totalPrice", shopCart.getCartPrice());
         
         try {
-            forward("/PurchaseView.jsp");
+            forward("/view/PurchaseView.jsp");
         } catch (ServletException | IOException ex) {
             Logger.getLogger(AddCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         }    

@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import static java.lang.System.console;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -26,6 +25,7 @@ public class ProductArchiveLoader implements ProductLoader {
     public ProductArchiveLoader(String filePathName){
         this.filePathName = filePathName;
     }
+
     
     @Override
     public List<Product> loadAllProduct() {
@@ -46,8 +46,7 @@ public class ProductArchiveLoader implements ProductLoader {
                 JSONObject jsonProduct = (JSONObject) iterator.next();
                 String jsonProductString = jsonProduct.toJSONString();
                 
-                Object objects = objectMapper.readValue(jsonProductString, Product.class);
-                Product product = (Product)objects;
+                Product product = (Product) objectMapper.readValue(jsonProductString, Product.class);
                 
                 listProduct.add(product);
             }

@@ -36,7 +36,7 @@ public class Product {
     @JsonProperty("categories")
     private List<String> categories;
     
-    private Integer price = (int)(Math.random()*(100-10)+10);
+    private final Integer price = (int)(Math.random()*(100-10)+10);
        
     public Product(){}
     

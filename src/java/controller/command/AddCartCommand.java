@@ -1,7 +1,6 @@
 
 package controller.command;
 
-import controller.command.FrontCommand;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,10 +22,7 @@ public class AddCartCommand extends FrontCommand {
         Catalog catalog = (Catalog) session.getAttribute("catalog");
         ShoppingCart shopCart = (ShoppingCart) session.getAttribute("shopCart");
 
-        if(shopCart == null){
-            shopCart = new ShoppingCart();
-            session.setAttribute("shopCart", shopCart);
-        }
+        if(shopCart == null) shopCart = new ShoppingCart();
         
         Product product = catalog.getProductByIsbn((String) request.getParameter("isbn"));
         
@@ -35,7 +31,7 @@ public class AddCartCommand extends FrontCommand {
         session.setAttribute("shopCart", shopCart);
         
         try {
-            forward("/CatalogView.jsp");
+            forward("/view/CatalogView.jsp");
         } catch (ServletException | IOException ex) {
             Logger.getLogger(AddCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         }

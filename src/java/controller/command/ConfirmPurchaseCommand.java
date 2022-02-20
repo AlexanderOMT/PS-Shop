@@ -22,7 +22,7 @@ public class ConfirmPurchaseCommand extends FrontCommand{
         session.setAttribute("shopCart", shopCart);
         
         try {
-            forward("/CartView.jsp");
+            forward("/view/CartView.jsp");
         } catch (ServletException | IOException ex) {
             Logger.getLogger(UnknownCommand.class.getName()).log(Level.SEVERE, null, ex);
         }

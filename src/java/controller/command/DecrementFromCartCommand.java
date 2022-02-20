@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller.command;
 
 import java.io.IOException;
@@ -10,7 +14,11 @@ import model.Catalog;
 import model.Product;
 import model.ShoppingCart;
 
-public class RemoveCartCommand extends FrontCommand{
+/**
+ *
+ * @author oscar
+ */
+public class DecrementFromCartCommand extends FrontCommand {
 
     @Override
     public void process() {
@@ -26,7 +34,7 @@ public class RemoveCartCommand extends FrontCommand{
         
         Product product = catalog.getProductByIsbn((String) request.getParameter("isbn"));
         
-        shopCart.removeProduct(product);
+        shopCart.decrementProduct(product);
         
         session.setAttribute("shopCart", shopCart);
 
@@ -34,7 +42,7 @@ public class RemoveCartCommand extends FrontCommand{
             forward("/view/CartView.jsp");
         } catch (ServletException | IOException ex) {
             Logger.getLogger(AddCartCommand.class.getName()).log(Level.SEVERE, null, ex);
-        }    
+        } 
     }
     
 }

@@ -19,7 +19,7 @@ public class UnknownCommand extends FrontCommand{
     @Override
     public void process() {
         try {
-            forward("/ErrorView.jsp");
+            forward("/view/ErrorView.jsp");
         } catch (ServletException | IOException ex) {
             Logger.getLogger(UnknownCommand.class.getName()).log(Level.SEVERE, null, ex);
         }

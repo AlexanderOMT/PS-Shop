@@ -10,10 +10,11 @@ import model.Catalog;
 import model.Product;
 import model.ShoppingCart;
 
-public class RemoveCartCommand extends FrontCommand{
 
+public class IncrementFromCartCommand extends FrontCommand {
+    
     @Override
-    public void process() {
+    public void process(){
         HttpSession session = request.getSession(true);
 
         Catalog catalog = (Catalog) session.getAttribute("catalog");
@@ -26,7 +27,7 @@ public class RemoveCartCommand extends FrontCommand{
         
         Product product = catalog.getProductByIsbn((String) request.getParameter("isbn"));
         
-        shopCart.removeProduct(product);
+        shopCart.incrementProduct(product);
         
         session.setAttribute("shopCart", shopCart);
 
@@ -34,7 +35,6 @@ public class RemoveCartCommand extends FrontCommand{
             forward("/view/CartView.jsp");
         } catch (ServletException | IOException ex) {
             Logger.getLogger(AddCartCommand.class.getName()).log(Level.SEVERE, null, ex);
-        }    
+        } 
     }
-    
 }

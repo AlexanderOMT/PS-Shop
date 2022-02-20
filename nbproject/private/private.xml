@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/command/BuyCartCommand.java</file>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/command/DecrementFromCartCommand.java</file>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/command/RemoveCartCommand.java</file>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/command/IncrementFromCartCommand.java</file>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/command/ConfirmPurchaseCommand.java</file>
             <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/web/index.html</file>
-            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/command/AddCartCommand.java</file>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/command/FrontCommand.java</file>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/command/UnknownCommand.java</file>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/FrontController.java</file>
+            <file>file:/C:/Users/oscar/Documents/Projects/Netbeans/Shop/src/java/controller/command/ClearCartCommand.java</file>
         </group>
     </open-files>
 </project-private>
