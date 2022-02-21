@@ -22,7 +22,7 @@
         %>
             <div>
                 <b>
-                    <%out.println("\n" + p.getTitle() + " -> precio: " + p.getPrice() + " €");%>
+                    <%out.println("\n" + p.getTitle() + " -> precio: " + p.getPrice()*shopCart.getFrequencyProduct(p) + " €");%>
                 </b>
             </div>
         <%

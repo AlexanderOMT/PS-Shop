@@ -33,7 +33,7 @@ public class ClearCartCommand extends FrontCommand {
         session.setAttribute("shopCart", shopCart);
 
         try {
-            forward("/view/CartView.jsp");
+            forward(session.getAttribute("jspOrigin").toString());
         } catch (ServletException | IOException ex) {
             Logger.getLogger(ClearCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         }           

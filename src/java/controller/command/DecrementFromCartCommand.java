@@ -39,7 +39,7 @@ public class DecrementFromCartCommand extends FrontCommand {
         session.setAttribute("shopCart", shopCart);
 
         try {
-            forward("/view/CartView.jsp");
+            forward(session.getAttribute("jspOrigin").toString());
         } catch (ServletException | IOException ex) {
             Logger.getLogger(DecrementFromCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         } 

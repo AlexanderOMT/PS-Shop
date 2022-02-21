@@ -31,7 +31,7 @@ public class RemoveCartCommand extends FrontCommand{
         session.setAttribute("shopCart", shopCart);
 
         try {
-            forward("/view/CartView.jsp");
+            forward(session.getAttribute("jspOrigin").toString());
         } catch (ServletException | IOException ex) {
             Logger.getLogger(RemoveCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         }    
