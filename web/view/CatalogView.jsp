@@ -51,6 +51,7 @@
             }
 
             session.setAttribute("catalog", catalog);
+            session.setAttribute("jspOrigin", "/view/" + this.getClass().getSimpleName().replaceAll("_", "."));
             
             for (Product p: listProduct) {
                 %>
@@ -72,7 +73,7 @@
                 <img src=<%out.println(p.getThumbnailUrl());%>>
                 <form action="FrontController">
                     <input type="hidden" name="isbn" value="<%=p.getIsbn()%>"/>
-                    <input type="hidden" name="command" value="AddCartCommand"/>
+                    <input type="hidden" name="command" value="IncrementFromCartCommand"/>
                     <input type="submit" value="<%="Añadir a carrito: " + p.getTitle()%>"/>
                 </form>
                 <br>

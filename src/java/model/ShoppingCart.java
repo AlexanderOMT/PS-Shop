@@ -15,16 +15,12 @@ public class ShoppingCart {
         cart = new HashMap<>();
     }
 
-    public void addProduct(Product product){
-        cart.put(product, cart.containsKey(product) ? cart.get(product)+1 : 1);
-    }
-    
     public void removeProduct(Product product){
         cart.remove(product);
     }
 
     public void incrementProduct(Product product){
-        cart.put(product, cart.get(product)+1);
+        cart.put(product, cart.containsKey(product) ? cart.get(product)+1 : 1);
     }
     
     public void decrementProduct(Product product){

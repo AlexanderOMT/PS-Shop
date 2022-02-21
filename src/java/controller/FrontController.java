@@ -25,8 +25,6 @@ public class FrontController extends HttpServlet {
         
     }
 
-    
-    
     private FrontCommand getCommand(HttpServletRequest request) throws Exception{
         try{                    
             FrontCommand frontCommand = (FrontCommand) getCommandClass(request).newInstance();

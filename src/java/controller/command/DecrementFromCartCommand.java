@@ -41,7 +41,7 @@ public class DecrementFromCartCommand extends FrontCommand {
         try {
             forward("/view/CartView.jsp");
         } catch (ServletException | IOException ex) {
-            Logger.getLogger(AddCartCommand.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DecrementFromCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     

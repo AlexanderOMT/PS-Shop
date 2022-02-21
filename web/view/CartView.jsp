@@ -25,6 +25,7 @@
         <br>
         <%
             ShoppingCart shopCart = (ShoppingCart) session.getAttribute("shopCart");
+            session.setAttribute("jspOrigin", "/view/" + this.getClass().getSimpleName().replaceAll("_", "."));            
             
             if (shopCart != null){
                 if (shopCart.getCart().size() != 0){

@@ -26,15 +26,15 @@ public class IncrementFromCartCommand extends FrontCommand {
         }
         
         Product product = catalog.getProductByIsbn((String) request.getParameter("isbn"));
-        
         shopCart.incrementProduct(product);
         
         session.setAttribute("shopCart", shopCart);
-
+        
         try {
-            forward("/view/CartView.jsp");
+            forward(session.getAttribute("jspOrigin").toString());
+
         } catch (ServletException | IOException ex) {
-            Logger.getLogger(AddCartCommand.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IncrementFromCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
 }

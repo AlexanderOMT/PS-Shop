@@ -32,7 +32,7 @@ public class BuyCartCommand extends FrontCommand{
         try {
             forward("/view/PurchaseView.jsp");
         } catch (ServletException | IOException ex) {
-            Logger.getLogger(AddCartCommand.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BuyCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }
     

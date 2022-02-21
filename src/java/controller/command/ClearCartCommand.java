@@ -35,7 +35,7 @@ public class ClearCartCommand extends FrontCommand {
         try {
             forward("/view/CartView.jsp");
         } catch (ServletException | IOException ex) {
-            Logger.getLogger(AddCartCommand.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClearCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         }           
     }
 }
